@@ -21,13 +21,13 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>AppShoppingCenter</ApplicationTitle>
+		<ApplicationTitle>Shopping</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.appshoppingcenter</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
@@ -66,6 +66,25 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	  <Folder Include="Libraries\" />
+	  <Folder Include="ViewModels\Cinemas\" />
+	  <Folder Include="ViewModels\Authentications\" />
+	  <Folder Include="ViewModels\Restaurants\" />
+	  <Folder Include="ViewModels\Stores\" />
+	  <Folder Include="ViewModels\Tickets\" />
+	  <Folder Include="Views\Cinemas\" />
+	  <Folder Include="Views\Authentications\" />
+	  <Folder Include="Views\Tickets\" />
+	  <Folder Include="Views\Restaurants\" />
+	  <Folder Include="Views\Stores\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\AppShoppingCenter.Models\AppShoppingCenter.Models.csproj" />
 	</ItemGroup>
 
 </Project>
