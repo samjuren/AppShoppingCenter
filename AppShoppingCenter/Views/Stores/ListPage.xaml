@@ -2,11 +2,36 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppShoppingCenter.Views.Stores.ListPage"
-             Title="ListPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="ListPage"
+             xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Stores"
+             xmlns:Behaviors="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <ContentPage.BindingContext>
+        <vm:ListPageViewModel/>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout Padding="20">
+        <Entry
+            Placeholder="Pesquisa por Loja"
+            Text="{Binding TextSearch}">
+
+            <Entry.Behaviors>
+                <Behaviors:EventToCommandBehavior 
+                    EventName="TextChanged" 
+                    Command="{Binding TextSearchFilteredListCommand}">                    
+                </Behaviors:EventToCommandBehavior>
+            </Entry.Behaviors>
+            
+        </Entry>
+
+
+        <CollectionView            
+            ItemsSource="{Binding EstablishmentsFiltered}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Name}"></Label>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </VerticalStackLayout>
 </ContentPage>

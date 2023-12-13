@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui;
+﻿using AppShoppingCenter.Services;
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace AppShoppingCenter
@@ -18,6 +19,7 @@ namespace AppShoppingCenter
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<StoresService>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
