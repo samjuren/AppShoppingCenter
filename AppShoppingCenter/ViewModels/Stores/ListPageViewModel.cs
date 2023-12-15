@@ -2,7 +2,6 @@
 using AppShoppingCenter.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Linq;
 
 namespace AppShoppingCenter.ViewModels.Stores
 {
@@ -27,6 +26,17 @@ namespace AppShoppingCenter.ViewModels.Stores
         private void OnTextSearchFilteredList()
         {
             EstablishmentsFiltered = establishmentsFull.Where(x => x.Name.ToLower().Contains(textSearch.ToLower())).ToList();
+        }
+
+        [RelayCommand]
+        private async void OnTapEstablishmentGoToDetailPage(Establishment establishment)
+        {
+            var navigationParameter = new Dictionary<string, object>() 
+            {
+                { "establishment", establishment }
+            };
+            //stores
+            await Shell.Current.GoToAsync("detail", navigationParameter);           
         }
     }
 }

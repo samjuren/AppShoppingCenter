@@ -6,10 +6,11 @@
              xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Stores"
              xmlns:Behaviors="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
     <ContentPage.BindingContext>
-        <vm:ListPageViewModel/>
+        <vm:ListPageViewModel x:Name="vm"/>
     </ContentPage.BindingContext>
     
-    <VerticalStackLayout Padding="20">
+    <Grid Padding="20" RowDefinitions="50, *">
+        
         <Entry
             Placeholder="Pesquisa por Loja"
             Text="{Binding TextSearch}">
@@ -23,15 +24,20 @@
             
         </Entry>
 
-
-        <CollectionView            
+        <CollectionView 
+            Grid.Row="1"
             ItemsSource="{Binding EstablishmentsFiltered}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding Name}"></Label>
+                    <Label Text="{Binding Name}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Source={x:Reference vm}, Path=TapEstablishmentGoToDetailPageCommand}" CommandParameter="{Binding .}">                                
+                            </TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>
