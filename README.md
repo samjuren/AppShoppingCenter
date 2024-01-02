@@ -1,1 +1,3 @@
-Aplicativo para Shopping
+Shopping Center
+
+Aplicativo que mostra lojas do Shopping.
