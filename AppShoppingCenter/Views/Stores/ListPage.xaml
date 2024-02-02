@@ -20,8 +20,7 @@
                     EventName="TextChanged" 
                     Command="{Binding TextSearchFilteredListCommand}">                    
                 </Behaviors:EventToCommandBehavior>
-            </Entry.Behaviors>
-            
+            </Entry.Behaviors>            
         </Entry>
 
         <CollectionView 

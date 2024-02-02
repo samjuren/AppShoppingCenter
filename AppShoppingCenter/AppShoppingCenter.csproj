@@ -122,4 +122,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadUnhandledDeviceExceptionAppShoppingCenterHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>
